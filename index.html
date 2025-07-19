@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Score Access</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('stadium_background.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-shadow: 1px 1px 2px black;
+            flex-direction: column;
+        }
+        .container {
+            background: rgba(0,0,0,0.6);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        button {
+            background: #00cc66;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="age-check">
+        <h1>Вам есть 18 лет?</h1>
+        <button onclick="confirmAge()">Да, продолжить</button>
+    </div>
+
+    <script>
+        const redirectUrl = "https://nacionalapp.site/dKf";
+        if (localStorage.getItem("is18") === "true") {
+            window.location.href = redirectUrl;
+        }
+
+        function confirmAge() {
+            localStorage.setItem("is18", "true");
+            window.location.href = redirectUrl;
+        }
+    </script>
+</body>
+</html>
